@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --color-fundo: #0d0b12;
+  --color-superficie: #17141f;
+  --color-borda: #2a2536;
+  --color-laranja: #ff7a1a;
+  --color-verde: #7dff3a;
+  --color-texto: #e8e6ef;
+}
+
+body {
+  @apply bg-fundo text-texto antialiased;
+}
