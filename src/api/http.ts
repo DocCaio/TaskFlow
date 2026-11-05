@@ -34,7 +34,7 @@ export async function request<T>(path: string, init: RequestInit = {}): Promise<
     try {
       problem = (await response.json()) as ProblemDetail;
     } catch {
-   
+  
     }
     throw new ApiError(
       response.status,
