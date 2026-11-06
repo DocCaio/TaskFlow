@@ -4,13 +4,13 @@ import { getErrorMessage } from "../../api/http";
 import { Button } from "../ui/Button";
 import { buttonStyles } from "../ui/buttonStyles";
 import { useToast } from "../../context/toast-context";
-import { QuickAddTask } from "../features/tasks/components/QuickAddTask";
-import { TaskCard } from "../features/tasks/components/TaskCard";
-import { TaskFilter } from "../features/tasks/components/TaskFilter";
-import { filterTasks } from "../features/tasks/filter";
-import { useDeleteTask, useTasks, useUpdateTask } from "../features/tasks/hooks";
+import { QuickAddTask } from "../../features/tasks/components/QuickAddTask";
+import { TaskCard } from "../../features/tasks/components/TaskCard";
+import { TaskFilter } from "../../features/tasks/components/TaskFilter";
+import { filterTasks } from "../../features/tasks/filter";
+import { useDeleteTask, useTasks, useUpdateTask } from "../../features/tasks/hooks";
 import { useTaskFilterStore } from "../../features/tasks/store";
-import type { Task, TaskStatus } from "../features/tasks/types";
+import type { Task, TaskStatus } from "../../features/tasks/types";
 
 export function Home() {
   const { data, isPending, isError, error, refetch } = useTasks();
