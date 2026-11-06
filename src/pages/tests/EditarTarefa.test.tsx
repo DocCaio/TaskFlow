@@ -6,7 +6,7 @@ import { makeTask } from "../../test/fixtures";
 import { renderWithProviders } from "../../test/render";
 import { EditarTarefa } from "../EditarTarefa";
 
-vi.mock("../features/tasks/api");
+vi.mock("../../features/tasks/api");
 
 function setup(route = "/tarefas/1/editar") {
   return renderWithProviders(<EditarTarefa />, { route, path: "/tarefas/:id/editar" });

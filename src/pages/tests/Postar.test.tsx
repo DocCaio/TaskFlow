@@ -6,7 +6,7 @@ import { makeTask } from "../../test/fixtures";
 import { renderWithProviders } from "../../test/render";
 import { Postar } from "../Postar";
 
-vi.mock("../features/tasks/api");
+vi.mock("../../features/tasks/api");
 
 function setup() {
   return renderWithProviders(<Postar />, { route: "/postar", path: "/postar" });
