@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ApiError } from "../../../api/http";
-import { makeTask } from "../../../test/fixtures";
-import { renderWithProviders } from "../../../test/render";
-import * as api from "../api";
-import { QuickAddTask } from "./QuickAddTask";
+import { ApiError } from "../../../../api/http";
+import { makeTask } from "../../../../test/fixtures";
+import { renderWithProviders } from "../../../../test/render";
+import * as api from "../../api";
+import { QuickAddTask } from "../QuickAddTask";
 
 vi.mock("../api");
 

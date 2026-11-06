@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TaskForm } from "./TaskForm";
+import { TaskForm } from "../TaskForm";
 
 describe("TaskForm", () => {
   it("bloqueia o envio sem título", async () => {

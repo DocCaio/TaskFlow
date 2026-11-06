@@ -1,4 +1,4 @@
-import { ApiError, getErrorMessage, request } from "./http";
+import { ApiError, getErrorMessage, request } from "../http";
 
 function jsonResponse(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {

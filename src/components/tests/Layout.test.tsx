@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { Layout } from "./Layout";
+import { Layout } from "../layout/Layout";
 
 describe("Layout", () => {
   it("renderiza navbar, conteúdo da rota e footer", () => {

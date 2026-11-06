@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Footer } from "./Footer";
+import { Footer } from "../layout/Footer";
 
 describe("Footer", () => {
   it("mostra o texto de direitos reservados", () => {

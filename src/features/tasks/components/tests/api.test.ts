@@ -1,4 +1,4 @@
-import { createTask, deleteTask, getTask, listTasks, updateTask } from "./api";
+import { createTask, deleteTask, getTask, listTasks, updateTask } from "../../api";
 
 function ok(body: unknown, status = 200) {
   return new Response(body === undefined ? null : JSON.stringify(body), { status });

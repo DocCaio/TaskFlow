@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../layout/Navbar";
 
 describe("Navbar", () => {
   it("renderiza os links Home, Sobre e Postar", () => {

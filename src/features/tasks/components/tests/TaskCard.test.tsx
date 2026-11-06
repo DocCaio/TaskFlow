@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import { makeTask } from "../../../test/fixtures";
-import { TaskCard } from "./TaskCard";
+import { makeTask } from "../../../../test/fixtures";
+import { TaskCard } from "../TaskCard";
 
 function setup(overrides = {}) {
   const task = makeTask(overrides);
