@@ -1,4 +1,4 @@
-import { createQueryClient } from "./queryClient";
+import { createQueryClient } from "../queryClient";
 
 describe("createQueryClient", () => {
   it("usa cache de 30s, 1 retry e não refaz a busca ao focar a janela", () => {

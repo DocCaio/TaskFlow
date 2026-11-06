@@ -1,4 +1,4 @@
-import { useTaskFilterStore } from "./store";
+import { useTaskFilterStore } from "../tasks/store";
 
 describe("useTaskFilterStore", () => {
   beforeEach(() => {

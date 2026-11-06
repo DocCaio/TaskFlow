@@ -3,10 +3,10 @@ import userEvent from "@testing-library/user-event";
 import { ApiError } from "../../../../api/http";
 import { makeTask } from "../../../../test/fixtures";
 import { renderWithProviders } from "../../../../test/render";
-import * as api from "../../api";
+import * as api from "../../../tasks/api";
 import { QuickAddTask } from "../QuickAddTask";
 
-vi.mock("../api");
+vi.mock("../../../tasks/api");
 
 describe("QuickAddTask", () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { makeTask } from "../../test/fixtures";
-import { filterTasks } from "./filter";
+import { filterTasks } from "../tasks/filter";
 
 const tasks = [
   makeTask({ id: 1, title: "Estudar React", description: null, status: "TODO" }),

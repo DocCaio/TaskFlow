@@ -7,7 +7,7 @@ import { makeTask } from "../../test/fixtures";
 import { renderWithProviders } from "../../test/render";
 import { Home } from "../Home";
 
-vi.mock("../features/tasks/api");
+vi.mock("../../features/tasks/api");
 
 const tasks = [
   makeTask({ id: 1, title: "Estudar React", status: "TODO" }),
