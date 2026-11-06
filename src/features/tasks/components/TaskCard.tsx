@@ -14,11 +14,26 @@ interface TaskCardProps {
 
 export function TaskCard({ task, onStatusChange, onDelete, disabled = false }: TaskCardProps) {
   const createdAt = new Date(task.createdAt).toLocaleDateString("pt-BR");
+  const isDone = task.status === "DONE";
 
   return (
     <article className="rounded-lg border border-borda bg-superficie p-4">
       <div className="flex items-start justify-between gap-3">
-        <h2 className="text-lg font-semibold text-texto">{task.title}</h2>
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            aria-label={`Concluir ${task.title}`}
+            checked={isDone}
+            disabled={disabled}
+            onChange={(event) => onStatusChange(task, event.target.checked ? "DONE" : "TODO")}
+            className="mt-1.5 h-4 w-4 cursor-pointer accent-verde disabled:cursor-not-allowed disabled:opacity-50"
+          />
+          <h2
+            className={`text-lg font-semibold text-texto ${isDone ? "line-through opacity-60" : ""}`}
+          >
+            {task.title}
+          </h2>
+        </div>
         <StatusBadge status={task.status} />
       </div>
 
