@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ApiError } from "../../api/http";
-import * as api from "../../features/tasks/api";
-import { makeTask } from "../../test/fixtures";
-import { renderWithProviders } from "../../test/render";
-import { EditarTarefa } from "../EditarTarefa";
+import { ApiError } from "../api/http";
+import * as api from "../features/tasks/api";
+import { makeTask } from "../test/fixtures";
+import { renderWithProviders } from "../test/render";
+import { EditarTarefa } from "./EditarTarefa";
 
-vi.mock("../../features/tasks/api");
+vi.mock("../features/tasks/api");
 
 function setup(route = "/tarefas/1/editar") {
   return renderWithProviders(<EditarTarefa />, { route, path: "/tarefas/:id/editar" });

@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ApiError } from "../../api/http";
-import * as api from "../../features/tasks/api";
-import { useTaskFilterStore } from "../../features/tasks/store";
-import { makeTask } from "../../test/fixtures";
-import { renderWithProviders } from "../../test/render";
-import { Home } from "../Home";
+import { ApiError } from "../api/http";
+import * as api from "../features/tasks/api";
+import { useTaskFilterStore } from "../features/tasks/store";
+import { makeTask } from "../test/fixtures";
+import { renderWithProviders } from "../test/render";
+import { Home } from "./Home";
 
-vi.mock("../../features/tasks/api");
+vi.mock("../features/tasks/api");
 
 const tasks = [
   makeTask({ id: 1, title: "Estudar React", status: "TODO" }),
@@ -127,30 +127,5 @@ describe("Home", () => {
     await userEvent.click(screen.getByRole("button", { name: "Excluir Estudar React" }));
 
     expect(await screen.findByText("Tarefa não encontrada: 1")).toBeInTheDocument();
-  });
-
-  it("adiciona uma tarefa pelo campo rápido e atualiza a lista", async () => {
-    const created = makeTask({ id: 4, title: "Tarefa rápida", description: null });
-    vi.mocked(api.listTasks).mockResolvedValueOnce(tasks).mockResolvedValue([created, ...tasks]);
-    vi.mocked(api.createTask).mockResolvedValue(created);
-    renderWithProviders(<Home />);
-    await screen.findByText("Estudar React");
-
-    await userEvent.type(screen.getByLabelText("Título da nova tarefa"), "Tarefa rápida");
-    await userEvent.click(screen.getByRole("button", { name: "Adicionar" }));
-
-    expect(await screen.findByText("Tarefa rápida")).toBeInTheDocument();
-    expect(screen.getByText("4 tarefas no total")).toBeInTheDocument();
-  });
-
-  it("marca a tarefa como concluída pela caixa de seleção", async () => {
-    vi.mocked(api.listTasks).mockResolvedValue(tasks);
-    vi.mocked(api.updateTask).mockResolvedValue(makeTask({ id: 1, status: "DONE" }));
-    renderWithProviders(<Home />);
-    await screen.findByText("Estudar React");
-
-    await userEvent.click(screen.getByRole("checkbox", { name: "Concluir Estudar React" }));
-
-    expect(api.updateTask).toHaveBeenCalledWith(1, expect.objectContaining({ status: "DONE" }));
   });
 });

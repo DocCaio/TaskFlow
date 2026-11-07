@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { Navbar } from "../layout/Navbar";
+import { Navbar } from "./Navbar";
 
 describe("Navbar", () => {
   it("renderiza os links Home, Sobre e Postar", () => {
     render(
       <MemoryRouter>
         <Navbar />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "/");
@@ -19,9 +19,20 @@ describe("Navbar", () => {
     render(
       <MemoryRouter>
         <Navbar />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByAltText("Logo")).toBeInTheDocument();
+  });
+
+  it("destaca o link da rota atual", () => {
+    render(
+      <MemoryRouter initialEntries={["/sobre"]}>
+        <Navbar />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole("link", { name: "Sobre" })).toHaveClass("text-verde");
+    expect(screen.getByRole("link", { name: "Home" })).not.toHaveClass("text-verde");
   });
 });

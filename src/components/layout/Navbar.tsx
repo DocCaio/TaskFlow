@@ -12,7 +12,7 @@ export function Navbar() {
     <header className="border-b border-borda bg-superficie">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <NavLink to="/" className="flex items-center gap-2">
-          <img src="https://imgur.com/5Sdq2tJ.png" alt="Logo" className="h-10 w-auto" />
+            <img src="https://imgur.com/5Sdq2tJ.png" alt="Logo" className="h-10 w-auto"/>
         </NavLink>
 
         <ul className="flex items-center gap-6">

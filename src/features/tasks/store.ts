@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { StatusFilter } from "./types";
 
-export interface TaskFilterState {
+interface TaskFilterState {
   status: StatusFilter;
   search: string;
   setStatus: (status: StatusFilter) => void;

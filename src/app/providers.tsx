@@ -1,8 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import type { ReactNode } from "react";
-import { ToastProvider } from "../context/ToastProvider"; 
+import { ToastProvider } from "../context/ToastProvider";
+import { createQueryClient } from "../lib/queryClient";
 
-const queryClient = new QueryClient();
+const queryClient = createQueryClient();
 
 export function Providers({ children }: { children: ReactNode }) {
   return (

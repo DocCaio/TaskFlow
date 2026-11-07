@@ -1,5 +1,5 @@
 import { onCLS, onFCP, onINP, onLCP, onTTFB } from "web-vitals";
-import { reportWebVitals } from "../webVitals";
+import { reportWebVitals } from "./webVitals";
 
 vi.mock("web-vitals", () => ({
   onCLS: vi.fn(),

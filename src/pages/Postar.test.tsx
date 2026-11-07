@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ApiError } from "../../api/http";
-import * as api from "../../features/tasks/api";
-import { makeTask } from "../../test/fixtures";
-import { renderWithProviders } from "../../test/render";
-import { Postar } from "../Postar";
+import { ApiError } from "../api/http";
+import * as api from "../features/tasks/api";
+import { makeTask } from "../test/fixtures";
+import { renderWithProviders } from "../test/render";
+import { Postar } from "./Postar";
 
-vi.mock("../../features/tasks/api");
+vi.mock("../features/tasks/api");
 
 function setup() {
   return renderWithProviders(<Postar />, { route: "/postar", path: "/postar" });

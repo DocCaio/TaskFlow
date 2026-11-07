@@ -6,9 +6,20 @@
   --color-borda: #2a2536;
   --color-laranja: #ff7a1a;
   --color-verde: #7dff3a;
+  --color-roxo: #b48cff;
+  --color-perigo: #ff5c5c;
   --color-texto: #e8e6ef;
+}
+
+:root {
+  color-scheme: dark;
 }
 
 body {
   @apply bg-fundo text-texto antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-verde);
+  outline-offset: 2px;
 }

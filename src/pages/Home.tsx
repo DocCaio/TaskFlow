@@ -4,7 +4,6 @@ import { getErrorMessage } from "../api/http";
 import { Button } from "../components/ui/Button";
 import { buttonStyles } from "../components/ui/buttonStyles";
 import { useToast } from "../context/toast-context";
-import { QuickAddTask } from "../features/tasks/components/QuickAddTask";
 import { TaskCard } from "../features/tasks/components/TaskCard";
 import { TaskFilter } from "../features/tasks/components/TaskFilter";
 import { filterTasks } from "../features/tasks/filter";
@@ -61,8 +60,6 @@ export function Home() {
           Nova tarefa
         </Link>
       </header>
-
-      <QuickAddTask />
 
       <TaskFilter />
 

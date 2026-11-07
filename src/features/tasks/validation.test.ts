@@ -1,4 +1,4 @@
-import { validateTask } from "../tasks/validation";
+import { validateTask } from "./validation";
 
 describe("validateTask", () => {
   it("aceita título e descrição válidos", () => {

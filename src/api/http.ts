@@ -30,9 +30,12 @@ export async function request<T>(path: string, init: RequestInit = {}): Promise<
   }
 
   if (!response.ok) {
-    
-    const problem = (await response.json().catch(() => ({}))) as ProblemDetail;
-
+    let problem: ProblemDetail = {};
+    try {
+      problem = (await response.json()) as ProblemDetail;
+    } catch {
+      // resposta sem corpo JSON
+    }
     throw new ApiError(
       response.status,
       problem.detail ?? "Ocorreu um erro inesperado.",

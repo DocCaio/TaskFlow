@@ -1,4 +1,4 @@
-import { useTaskFilterStore, type TaskFilterState } from "../store";
+import { useTaskFilterStore } from "../store";
 import type { StatusFilter } from "../types";
 
 const FILTERS: { value: StatusFilter; label: string }[] = [
@@ -9,10 +9,10 @@ const FILTERS: { value: StatusFilter; label: string }[] = [
 ];
 
 export function TaskFilter() {
-  const status = useTaskFilterStore((state: TaskFilterState) => state.status);
-  const search = useTaskFilterStore((state: TaskFilterState) => state.search);
-  const setStatus = useTaskFilterStore((state: TaskFilterState) => state.setStatus);
-  const setSearch = useTaskFilterStore((state: TaskFilterState) => state.setSearch);
+  const status = useTaskFilterStore((state) => state.status);
+  const search = useTaskFilterStore((state) => state.search);
+  const setStatus = useTaskFilterStore((state) => state.setStatus);
+  const setSearch = useTaskFilterStore((state) => state.setSearch);
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

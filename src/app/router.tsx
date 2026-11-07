@@ -1,16 +1,31 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
-import { Home } from "../pages/Home";
-import { Sobre } from "../pages/Sobre";
-import { Postar } from "../pages/Postar";
 
+// Cada página vira um chunk separado (code splitting por rota).
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/sobre", element: <Sobre /> },
-      { path: "/postar", element: <Postar /> },
+      {
+        path: "/",
+        lazy: async () => ({ Component: (await import("../pages/Home")).Home }),
+      },
+      {
+        path: "/sobre",
+        lazy: async () => ({ Component: (await import("../pages/Sobre")).Sobre }),
+      },
+      {
+        path: "/postar",
+        lazy: async () => ({ Component: (await import("../pages/Postar")).Postar }),
+      },
+      {
+        path: "/tarefas/:id/editar",
+        lazy: async () => ({ Component: (await import("../pages/EditarTarefa")).EditarTarefa }),
+      },
+      {
+        path: "*",
+        lazy: async () => ({ Component: (await import("../pages/NotFound")).NotFound }),
+      },
     ],
   },
 ]);
