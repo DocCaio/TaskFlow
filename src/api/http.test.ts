@@ -59,13 +59,17 @@ describe("request", () => {
     });
   });
 
-  it("avisa quando não consegue conectar", async () => {
+  it("avisa quando não consegue conectar, informando a URL usada", async () => {
+    const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
     fetchMock.mockRejectedValue(new TypeError("Failed to fetch"));
 
     await expect(request("/tasks")).rejects.toMatchObject({
       status: 0,
-      message: "Não foi possível conectar ao servidor.",
+      message: expect.stringContaining("Não foi possível conectar ao servidor (http"),
     });
+    expect(consoleError).toHaveBeenCalled();
+
+    consoleError.mockRestore();
   });
 });
 
