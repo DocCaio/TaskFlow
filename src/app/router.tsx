@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 
-// Cada página vira um chunk separado (code splitting por rota).
+
 export const router = createBrowserRouter([
   {
     element: <Layout />,
+
+    hydrateFallbackElement: <p className="p-8 text-texto/70">Carregando...</p>,
     children: [
       {
         path: "/",
