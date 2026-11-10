@@ -25,17 +25,15 @@ export async function request<T>(path: string, init: RequestInit = {}): Promise<
       ...init,
       headers: { "Content-Type": "application/json", ...init.headers },
     });
-  } catch {
-    throw new ApiError(0, "Não foi possível conectar ao servidor.");
+  } catch (error) {
+    console.error(`[api] falha ao chamar ${env.apiUrl}${path}`, error);
+    throw new ApiError(0, `Não foi possível conectar ao servidor (${env.apiUrl}).`);
   }
 
   if (!response.ok) {
-    let problem: ProblemDetail = {};
-    try {
-      problem = (await response.json()) as ProblemDetail;
-    } catch {
-    
-    }
+
+    const problem = (await response.json().catch(() => ({}))) as ProblemDetail;
+
     throw new ApiError(
       response.status,
       problem.detail ?? "Ocorreu um erro inesperado.",
