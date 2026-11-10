@@ -3,7 +3,6 @@ import { env } from "./env";
 
 export type VitalsReporter = (metric: Metric) => void;
 
-/** Reporter padrão: console em desenvolvimento e sendBeacon quando VITE_VITALS_URL existir. */
 export const defaultReporter: VitalsReporter = (metric) => {
   if (import.meta.env.DEV) {
     console.info(`[web-vitals] ${metric.name}`, Math.round(metric.value * 100) / 100, metric.rating);
